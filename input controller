@@ -1,0 +1,18 @@
+/*daxil edilen fin kodun duzgunluyunu yoxlayib cavab qaytarir*/
+create or replace function fn_checkfinkod (p_fin varchar2)
+return varchar2
+is
+	v_result varchar2(30);
+	v_check boolean := true;
+begin
+	for i in 1..length(p_fin)
+    loop
+    if ascii(substr(upper(p_fin),i,1)) not between 65 and 90 and 
+    ascii(substr(upper(p_fin),i,1)) not between 48 and 57  then v_check:=false;
+	end if; 
+	end loop;
+	if v_check and length(p_fin)=7 and lower(p_fin) not like '%o%'  then v_result:='valid';
+	else v_result:='invalid';
+	end if;
+return v_result;
+end;
