@@ -1,0 +1,19 @@
+/*daxil edilen 2 eded arasindaki sade ededlerin sayini hesablayib qaytarir*/
+create or replace function fn_prime_number_count(p_nummin number, p_nummax number) return number is
+	v_count number:=0;
+	b_check boolean :=true;
+begin
+	for i in p_nummin..p_nummax
+	loop
+		for x in 2..i-1
+		loop
+    	b_check:=true;
+		if mod(i,x)=0 then b_check:=false;
+		exit;
+		end if;
+		end loop;
+	if b_check then v_count:=v_count+1;
+	end if;
+	end loop;
+return v_count;
+end;
