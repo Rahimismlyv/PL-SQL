@@ -1,0 +1,20 @@
+/*Armstorng ededinin tapilmasi ucun funksiya yazilir. Funksiyaya number formatinda bir eded daxil edilir ve varchar2 formatinda cavab qaytarilir. */
+create or replace function fn_armstrong(p_number number) 
+return varchar2
+is
+	v_result varchar2(50);
+	v_check number:=0;
+begin
+    begin
+    for i in 1..length(p_number)
+    loop
+	v_check:=v_check+power(substr(p_number,i,1),length(p_number));
+	end loop;
+	if p_number=v_check then v_result:=' is an Armstrong number';
+	else v_result:=' is not an Armstrong number';
+	end if;
+	exception when others then 
+	return 'daxil edilen eded musbet eded olmalidir';
+	end;
+return p_number||v_result;
+end;
