@@ -1,0 +1,10 @@
+/*Qebul etdiyi department_id-ye gore, 
+hemin departamentde ishleyen emekdashlarin emek haqqlarinin cemini qaytarsin.*/
+create or replace function fn_sum_salary(p_dep_id hr.employees.department_id%type)
+return  hr.employees.salary%type
+is
+	v_sumsalary hr.employees.salary%type ;
+begin
+	select sum(salary) into v_sumsalary from hr.employees where department_id=p_dep_id;
+return v_sumsalary;
+end;
