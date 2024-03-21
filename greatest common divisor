@@ -1,0 +1,11 @@
+/*daxil edilen 2 ededin en boyuk ortaq bolenini hesablayib cavab qaytarir*/
+create or replace function fn_gcd(p_num1 number, p_num2 number) return number is
+	v_return number;
+begin
+	for i in 1..least(p_num1,p_num2)	
+	loop
+	if mod(p_num1,i)=0 and mod(p_num2,i)=0 then v_return:=i;
+	end if;
+	end loop;
+return v_return;
+end;
