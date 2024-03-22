@@ -1,0 +1,29 @@
+/*bir paket yaradiriq . icinde 2 funksiya olacaq */
+create or replace package pg_math is
+	function fn_faktorial(p_num number) return number;
+	function fn_prime_number(p_num number) return varchar2;
+end pg_math;
+/*birinci funksiya (fn_faktorial) daxil edilen ededin faktorialini hesablayib bize qaytarir. 
+Ikinci funksiya (fn_prime_number) daxil edilen ededin sade ve ya murekkeb oldugunu yoxlayib bize cavab qaytarir */
+create or replace package body pg_math is
+	function fn_faktorial(p_num number) return number is
+		v_return number:=1;
+	begin
+		for i in 1..p_num
+        loop
+        	v_return:=v_return*i;
+		end loop;
+	return v_return;
+	end fn_faktorial;
+
+	function fn_prime_number(p_num number) return varchar2 is
+		v_return varchar2(10):='sade';
+	begin 
+        for i in 2..p_num-1
+		loop
+			if mod(p_num,i)=0 then v_return:='murekkeb';
+			end if;
+		end loop;
+	return v_return;
+	end fn_prime_number;
+end pg_math;
