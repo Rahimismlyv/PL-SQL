@@ -1,0 +1,13 @@
+/*daxil edilen 2 employee id arasinda olan bütün employee-lərin
+employee_id, last_name və salary sütunlarını birləşdirib output edir*/
+create or replace procedure pr_employee_concat(p_emp_id1 hr.employees.employee_id%type, p_emp_id2 hr.employees.employee_id%type) is
+	cursor c_employees is
+    select employee_id, last_name,salary from hr.employees
+    where employee_id between p_emp_id1 and p_emp_id2;
+begin
+	for rec_employees in c_employees
+	loop
+    	dbms_output.put_line(c_employees%rowcount||':'||rec_employees.employee_id||'-'||
+    						 rec_employees.last_name||'-'||rec_employees.salary);
+	end loop;
+end;
