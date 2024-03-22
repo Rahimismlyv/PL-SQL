@@ -1,0 +1,11 @@
+/*verilen departamente gore maximum ve minimum salarynin ferqi*/
+create or replace function fn_difference_salary(p_dep_id hr.employees.department_id%type) return number is
+	v_return number;
+	v_minsal number;
+	v_maxsal number;
+begin 
+	select max(salary) into v_maxsal from hr.employees where department_id=p_dep_id;
+	select min(salary) into v_minsal from hr.employees where department_id=p_dep_id;
+	v_return:=v_maxsal-v_minsal;
+return v_return;
+end;
