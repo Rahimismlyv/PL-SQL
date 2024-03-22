@@ -1,0 +1,11 @@
+/*bu proceduru ise saldiqda emp_copy adinda employees cedvelinin kopyasin 
+yaradir ve 10 ilden artiq isleyen ishcilerin maaslarini 20% artirir.Eger emp_copy adinda cedvel varsa onu silib yeniden yaradir */
+create or replace procedure pr_emp_copy_bonus is
+	v_count number ; 
+begin
+	select count(*) into v_count from all_tables where lower(table_name)='emp_copy';
+	if v_count>0 then execute immediate 'drop table emp_copy'; 
+	end if;
+	execute immediate 'create table emp_copy as select * from hr.employees';
+	execute immediate 'update emp_copy set salary=salary*1.2 where (sysdate-hire_date)/365>=10';
+end;
