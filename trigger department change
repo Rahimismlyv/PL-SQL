@@ -1,0 +1,14 @@
+/*emp_copy cedvelinde her hansisa isci bir departmentden digerine kecdikde 
+trigger vasitesile employee_new_dept cedveline iscinin melumatlari insert olunur*/
+create table emp_copy as select * from hr.employees;
+/
+create table employee_new_dept (employee_id number ,first_name varchar2(30), last_name varchar2(30),
+    							old_dep number, new_dep number);
+/
+create or replace trigger trg_dep_change
+before update of department_id on emp_copy
+for each row
+begin
+	insert into employee_new_dept values (:old.employee_id,:old.first_name,:old.last_name,
+    									  :old.department_id,:new.department_id);
+end;
