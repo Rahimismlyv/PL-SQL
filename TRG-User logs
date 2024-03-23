@@ -1,0 +1,16 @@
+create table emp_copy as select * from hr.employees;
+/
+create table user_logs(employee_id number , act_date date , log_type varchar2(1),user_id varchar2(30));
+/
+create or replace trigger trg_user_logs
+after delete or update or insert on emp_copy
+for each row
+begin
+	if deleting then 
+		insert into user_logs values(:old.employee_id,sysdate,'D',user);
+	elsif updating then
+		insert into user_logs values(:old.employee_id,sysdate,'U',user);
+	else 
+		insert into user_logs values(:new.employee_id,sysdate,'I',user);
+	end if;
+end;
