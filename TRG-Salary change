@@ -1,3 +1,8 @@
+/*
+Create a trigger for keeping old salary details of employees.
+İşçilərin öncəki maaş detallarını saxlamaq üçün trigger yaratmaq.
+*/
+
 create table emp_copy as select * from hr.employees;
 /
 create table salary_change_history (employee_id number, change_date date , salary number)    
