@@ -1,4 +1,7 @@
-/*daxil edilen fin kodun duzgunluyunu yoxlayib cavab qaytarir*/
+/*
+Check whether entered PIN number is non-standard.
+Daxil edilən FİN nömrənin qeyri-standart olmasını yoxlamaq.
+*/
 create or replace function fn_checkfinkod (p_fin varchar2)
 return varchar2
 is
