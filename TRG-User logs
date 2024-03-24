@@ -1,3 +1,7 @@
+/*
+Collecting logs of users who make changes to emp_copy table.
+Emp_copy cədvəlində dəyişiklik aparan user-lərin loqlarının toplanması.
+*/
 create table emp_copy as select * from hr.employees;
 /
 create table user_logs(employee_id number , act_date date , log_type varchar2(1),user_id varchar2(30));
