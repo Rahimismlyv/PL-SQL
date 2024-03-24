@@ -1,4 +1,8 @@
-/*daxil edilen 2 ededin en boyuk ortaq bolenini hesablayib cavab qaytarir*/
+/*
+Find greatest common divisor for given 2 numbers.
+Verilmiş 2 ədəd üçün ən böyük ortaq böləni tapmaq.
+*/
+
 create or replace function fn_gcd(p_num1 number, p_num2 number) return number is
 	v_return number;
 begin
