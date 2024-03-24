@@ -1,5 +1,7 @@
-/*emp_copy cedvelinde her hansisa isci bir departmentden digerine kecdikde 
-trigger vasitesile employee_new_dept cedveline iscinin melumatlari insert olunur*/
+/*
+Create a trigger for inserting a employees details to employee_new_dept table whenever department_id column is updated in emp_copy table.
+Emp_copy cədvəlinin department_id sütununda dəyişiklik edilən zaman employee_new_dept cədvəlinə işçinin detallarını daxil edən trigger yaratmaq.
+*/
 create table emp_copy as select * from hr.employees;
 /
 create table employee_new_dept (employee_id number ,first_name varchar2(30), last_name varchar2(30),
