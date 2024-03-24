@@ -1,4 +1,8 @@
-/*daxil edilen 2 eded arasindaki sade ededlerin sayini hesablayib qaytarir*/
+/*
+Find number of prime numbers between given 2 numbers.
+Verilmiş 2 ədəd arasında sadə ədədlərin sayını tapmaq.
+*/
+
 create or replace function fn_prime_number_count(p_nummin number, p_nummax number) return number is
 	v_count number:=0;
 	b_check boolean :=true;
