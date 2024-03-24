@@ -1,0 +1,15 @@
+create table dept_copy as select * from hr.departments
+/
+create or replace trigger trg_manager_change
+before insert or update on dept_copy
+for each row
+declare 
+	p_depid dept_copy.department_id%type;
+begin
+	select department_id into p_depid from
+    hr.employees where employee_id=:new.manager_id;
+
+	if p_depid!=:new.department_id then
+    raise_application_error(-20032,'Employee cannot head department that he/she does not belong to');
+	end if;
+end;
