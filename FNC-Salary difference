@@ -1,4 +1,8 @@
-/*verilen departamente gore maximum ve minimum salarynin ferqi*/
+/*
+Find difference between highest and lowest salary in any given department.
+Verilmiş departament üzrə ən yüksək və ən aşağı maaş arasında fərqi tapmaq.
+*/
+
 create or replace function fn_difference_salary(p_dep_id hr.employees.department_id%type) return number is
 	v_return number;
 	v_minsal number;
