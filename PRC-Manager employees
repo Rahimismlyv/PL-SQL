@@ -1,0 +1,16 @@
+/*Daxil edilen manager_idde neche ischi ishlediyini , onlarin employee_idsi , first_name , last_name ve hansi departamentde ishlediyini output edir*/
+create or replace procedure pr_employees_manager(p_manager_id hr.employees.manager_id%type) 
+is
+	cursor c_employees is select employee_id,
+    							 first_name||'-'||last_name as full_name,
+    							 department_id 
+         				  from hr.employees where manager_id=p_manager_id;
+begin
+	for rec_employees in c_employees
+	loop
+	dbms_output.put_line(c_employees%rowcount||'-'||
+    					 rec_employees.employee_id||'-'||
+    					 rec_employees.full_name||'-'||
+    					 rec_employees.department_id);
+	end loop;
+end;
