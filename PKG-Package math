@@ -1,10 +1,12 @@
-/*bir paket yaradiriq . icinde 2 funksiya olacaq */
+/*
+Package for finding factorial number or check whether given number in a prime number.
+Verilmiş ədədin faktorialını hesablamaq və ya sadə ədəd olmasını yoxlamaq.
+*/
 create or replace package pg_math is
 	function fn_faktorial(p_num number) return number;
 	function fn_prime_number(p_num number) return varchar2;
 end pg_math;
-/*birinci funksiya (fn_faktorial) daxil edilen ededin faktorialini hesablayib bize qaytarir. 
-Ikinci funksiya (fn_prime_number) daxil edilen ededin sade ve ya murekkeb oldugunu yoxlayib bize cavab qaytarir */
+/
 create or replace package body pg_math is
 	function fn_faktorial(p_num number) return number is
 		v_return number:=1;
