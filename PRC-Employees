@@ -1,5 +1,7 @@
-/*daxil edilen 2 employee id arasinda olan bütün employee-lərin
-employee_id, last_name və salary sütunlarını birləşdirib output edir*/
+/*
+Find employees whose id is between given numbers.
+İşçi nömrəsi verilmiş 2 ədəd arasında olan işçiləri tapmaq.
+*/
 create or replace procedure pr_employee_concat(p_emp_id1 hr.employees.employee_id%type, p_emp_id2 hr.employees.employee_id%type) is
 	cursor c_employees is
     select employee_id, last_name,salary from hr.employees
