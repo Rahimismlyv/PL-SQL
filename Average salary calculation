@@ -1,3 +1,8 @@
+/* 
+Find out number of employees whose salary is above average, average or below average.
+Ortalama maaşdan yuxarı, ortalama maaşa bərabər və ya aşağı maaş alan işçilərin sayını tapmaq.
+*/
+
 declare 
 	p_avg_salary number;
 	p_high       number;
