@@ -1,5 +1,7 @@
-/*bu proceduru ise saldiqda emp_copy adinda employees cedvelinin kopyasin 
-yaradir ve 10 ilden artiq isleyen ishcilerin maaslarini 20% artirir.Eger emp_copy adinda cedvel varsa onu silib yeniden yaradir */
+/*
+Create or replace table named emp_copy, insert rows from emplyees table and raise salaries of enplyees whose experience is greater than 10 years.
+Emp_copy adlı cədvəl yaradılır, employees cədvəlinin sətirləri əlavə edilir və iş təcrübəsi 10 ildən yuxarı olan işçilərin maaşı 20% artırılır.
+*/
 create or replace procedure pr_emp_copy_bonus is
 	v_count number ; 
 begin
