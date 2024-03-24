@@ -1,0 +1,22 @@
+declare 
+	p_avg_salary number;
+	p_high       number;
+	p_avg 		 number;
+	p_low 		 number;
+begin
+	select avg(salary) into 
+    p_avg_salary from hr.employees;
+
+	select count(*) into p_high from 
+    hr.employees where salary>trunc(p_avg_salary,-2);
+
+	select count(*) into p_avg from 
+    hr.employees where salary=trunc(p_avg_salary,-2);
+
+	select count(*) into p_low from 
+    hr.employees where salary<trunc(p_avg_salary,-2);
+
+	dbms_output.put_line('Above average: '||p_high);
+	dbms_output.put_line('Average: '||p_avg);
+	dbms_output.put_line('Below average: '||p_low);
+end;
