@@ -1,4 +1,7 @@
-/*daxil edilen 2 ededin ekobun tapib cavab qaytarir*/
+/*
+Find lowest common multiple for given 2 numbers.
+Verilmiş 2 ədəd üzrə ən kiçik ortaq bölünəni tapmaq.
+*/
 create or replace function fn_lcm(p_num1 number ,p_num2 number) return number is
 	v_return number;
 begin	
