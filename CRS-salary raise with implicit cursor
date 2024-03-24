@@ -1,3 +1,7 @@
+/*
+Increase salary of employees from certain department by 10% and display number updates made to the table.
+Müəyyən departamentdə çalışan işçilərin maaşlarını 10% artırmaq və edilmiş dəyişikliklərin sayını göstərmək.
+*/
 begin
 	update hr.employees set salary=salary*1.1
 	where department_id=100;
