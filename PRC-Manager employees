@@ -1,4 +1,7 @@
-/*Daxil edilen manager_idde neche ischi ishlediyini , onlarin employee_idsi , first_name , last_name ve hansi departamentde ishlediyini output edir*/
+/*
+Find count and details of employees for given manager.
+Menecerə tabe olan işçilərin sayını və detallarını tapmaq.
+*/
 create or replace procedure pr_employees_manager(p_manager_id hr.employees.manager_id%type) 
 is
 	cursor c_employees is select employee_id,
