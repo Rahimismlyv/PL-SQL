@@ -1,3 +1,8 @@
+/*
+Group employees by hire year and display each employee's name under their respective hire year.
+İşçiləri işə götürüldükləri illərə görə qruplaşdırmaq və müvafiq illərin altında işçilərin adını göstərmək.
+*/
+
 declare 
 	cursor c_emp(p_year number) is select first_name from 
     hr.employees where extract(year from hire_date) = p_year;
