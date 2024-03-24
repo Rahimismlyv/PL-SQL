@@ -1,0 +1,23 @@
+declare 
+	cursor c_emp(p_year number) is select first_name from 
+    hr.employees where extract(year from hire_date) = p_year;
+	p_min_year number;
+	p_max_year number;
+begin
+    select min(extract(year from hire_date)),
+    	   max(extract(year from hire_date)) 
+    	   into p_min_year,p_max_year 
+      	   from hr.employees;
+	for i in p_min_year..p_max_year
+	loop
+		dbms_output.put_line(i);
+		dbms_output.put_line('---------');
+
+		for rec_emp in c_emp(i)
+		loop
+			dbms_output.put_line(rec_emp.first_name);
+		end loop;
+
+		dbms_output.put_line('*********');
+	end loop;
+end;
