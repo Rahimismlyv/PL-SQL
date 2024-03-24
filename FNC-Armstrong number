@@ -1,4 +1,8 @@
-/*Armstorng ededinin tapilmasi ucun funksiya yazilir. Funksiyaya number formatinda bir eded daxil edilir ve varchar2 formatinda cavab qaytarilir. */
+/*
+Check whether given number is an Armstrong number.
+Verilmiş ədədin Armstronq ədədi olmasını yoxlamaq.
+*/
+
 create or replace function fn_armstrong(p_number number) 
 return varchar2
 is
