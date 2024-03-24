@@ -1,5 +1,7 @@
-/*Qebul etdiyi department_id-ye gore, 
-hemin departamentde ishleyen emekdashlarin emek haqqlarinin cemini qaytarsin.*/
+/*
+Find sum of salaries for employees in any given department.
+Verilmiş departament üzrə işçilərin maaşlarının cəmini tapmaq.
+*/
 create or replace function fn_sum_salary(p_dep_id hr.employees.department_id%type)
 return  hr.employees.salary%type
 is
